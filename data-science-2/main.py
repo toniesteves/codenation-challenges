@@ -109,7 +109,7 @@ ALPHA = 0.05
 def q1():
     stats, p_value = sct.shapiro(height)
 
-    return  bool(p_value >= ALPHA)
+    return  bool(p_value > ALPHA)
 
 
 # __Para refletir__:
@@ -143,7 +143,7 @@ fig.show()
 def q2():
     stats, p_value = sct.jarque_bera(height)
 
-    return  bool(p_value >= ALPHA)
+    return  bool(p_value > ALPHA)
 
 
 # __Para refletir__:
@@ -164,7 +164,7 @@ def q2():
 def q3():
     stats, p_value = sct.normaltest(weight)
 
-    return bool(p_value >= ALPHA)
+    return bool(p_value > ALPHA)
 
 
 # __Para refletir__:
@@ -196,7 +196,7 @@ def q4():
     log = np.log(weight)
     stats, p_value = sct.normaltest(log)
 
-    return bool(p_value >= ALPHA)
+    return bool(p_value > ALPHA)
 
 
 # __Para refletir__:
@@ -245,7 +245,7 @@ print(statistics.variance(can['height'].dropna()))
 def q5():
     stats, p_value = sct.ttest_ind(bra['height'], usa['height'], equal_var=False, nan_policy = 'omit')
 
-    return bool(p_value >= 0.025)
+    return bool(p_value > 0.025)
 
 
 # Não podemos afirmar que as médias são estatísticamente iguais.

@@ -1,0 +1,19 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.6.8, pytest-4.6.2, py-1.8.0, pluggy-0.12.0 -- /Users/toni/codenation/data-science-3/env/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/toni/codenation/data-science-3
+collecting ... collected 4 items
+
+test_submit.py::test_q1 PASSED                                           [ 25%]
+test_submit.py::test_q2 PASSED                                           [ 50%]
+test_submit.py::test_q3 PASSED                                           [ 75%]
+test_submit.py::test_q4 PASSED                                           [100%]
+
+=============================== warnings summary ===============================
+env/lib/python3.6/site-packages/sklearn/utils/validation.py:760
+  /Users/toni/codenation/data-science-3/env/lib/python3.6/site-packages/sklearn/utils/validation.py:760: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+    y = column_or_1d(y, warn=True)
+
+-- Docs: https://docs.pytest.org/en/latest/warnings.html
+----- generated xml file: /Users/toni/codenation/data-science-3/output.xml -----
+==================== 4 passed, 1 warnings in 13.24 seconds =====================

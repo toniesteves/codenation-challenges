@@ -10,4 +10,4 @@ test_submit.py::test_q3 PASSED                                           [ 75%]
 test_submit.py::test_q4 PASSED                                           [100%]
 
 ----- generated xml file: /Users/toni/codenation/data-science-3/output.xml -----
-=========================== 4 passed in 9.36 seconds ===========================
+========================== 4 passed in 11.03 seconds ===========================

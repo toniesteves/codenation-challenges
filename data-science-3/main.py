@@ -106,7 +106,6 @@ def q1():
     _evr = pca.explained_variance_ratio_
 
     return float(round(_evr[0],3))
-q1()
 
 
 # ## Questão 2
@@ -122,7 +121,6 @@ def q2():
     result = pca.fit_transform(fifa)
 
     return result.shape[1]
-q2()
 
 
 # ## Questão 3
@@ -153,41 +151,40 @@ def q3():
     pca = PCA(n_components=2).fit(fifa)
     
     return tuple(pca.components_.dot(x).round(3))
-q3()
 
 
 # ## Questão 4
 # 
 # Realiza RFE com estimador de regressão linear para selecionar cinco variáveis, eliminando uma a uma. Quais são as variáveis selecionadas? Responda como uma lista de nomes de variáveis.
 
-# In[12]:
+# In[23]:
 
 
 X = fifa.drop(['Overall'], axis = 1)
 y = fifa[['Overall']]
 
 
-# In[13]:
+# In[24]:
 
 
 X_train, X_test, y_train, y_test = train_test_split(X, y)
 
 
-# In[14]:
+# In[25]:
 
 
 lr_model = LinearRegression()
 lr_model.fit(X_train, y_train)
 
 
-# In[15]:
+# In[26]:
 
 
 rfe = RFE(lr_model)
 rfe.fit(X_train, y_train)
 
 
-# In[22]:
+# In[27]:
 
 
 feat_importances = pd.DataFrame({
@@ -196,7 +193,7 @@ feat_importances = pd.DataFrame({
     'coef': pd.Series(lr_model.coef_[0])})
 
 
-# In[23]:
+# In[28]:
 
 
 plt.rcParams['figure.figsize'] = [12, 10]
@@ -206,19 +203,14 @@ pd.Series(lr_model.coef_[0], index= X_train.columns).nlargest(45).plot(kind='bar
 plt.show();
 
 
-# In[29]:
-
-
-corr_features = feat_importances[feat_importances['corr'] == True].sort_values('coef', ascending=False)[:5]
-
-
-# In[31]:
+# In[30]:
 
 
 def q4():
     # Retorne aqui o resultado da questão 4.
-    return list(corr_features['feat'])
-q4()
+    rfe = RFE(LinearRegression(), n_features_to_select=5, step=1).fit(X, y)
+
+    return X.columns[rfe.support_].tolist()
 
 
 # In[ ]:
